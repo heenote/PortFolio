@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^13.4.2",
+    "@react-three/fiber": "^8.13.0",
     "@types/node": "20.2.0",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -20,6 +21,8 @@
     "react-dom": "18.2.0",
     "styled-components": "^6.0.0-rc.1",
     "styled-reset": "^4.4.7",
+    "three": "^0.152.2",
+    "typeit-react": "^2.6.4",
     "typescript": "5.0.4"
   },
   "devDependencies": {

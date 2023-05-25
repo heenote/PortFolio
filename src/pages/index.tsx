@@ -1,24 +1,30 @@
-import styles from '@/styles/Home.module.css'
 import { current } from '@/interface/interface'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
-const Navbar = styled.div`
-  border: 1px solid black;
-  border-radius: 10px;
+import About from '@/AboutMe/About'
+const Navbar = styled.div` 
   display: flex;
-  background-color: #16345A;
   width: 100%;
-  max-width: 100%;
   height: 70px;
   position: fixed;
   top:0;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 3;
+`
+const NavLogo = styled.div`
+  width: 250px;
+  padding-left: 20px;
 `
 
-const NavsubText = styled.h3`
-  margin-right: 40px;
+const List = styled.ul`
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  padding-right:350px;
+`
+const ListItem = styled.li`
   color: white;
-  letter-spacing: 1px;
   cursor: pointer;
 `
 
@@ -43,12 +49,11 @@ const NavNameText = styled.span`
 `
 
 const Inner = styled.div`
-  width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 100px;
+  font-size: 80px;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 `
 
 export default function Home() {
@@ -130,41 +135,43 @@ export default function Home() {
   return (
     <div  className="outer" >
      <Navbar>
-       <div style={{display:'block', width:'15%'}}>
+       <NavLogo >
         <NavNameText >조상희</NavNameText>
         <NavproText >Portfolio</NavproText> 
-       </div> 
-       <div style={{display: 'flex', marginLeft:'30%'}}>
-       <NavsubText onClick={()=>{
+       </NavLogo> 
+       <List>
+       <ListItem onClick={()=>{
         window.scrollTo({
           top:0,
           behavior:'smooth'
         })
-       }}>Main</NavsubText>
-       <NavsubText onClick={()=>{
+       }}>Main</ListItem>
+       <ListItem onClick={()=>{
         window.scrollTo({
           top:currentSize.currentWindowHeight * 1,
           behavior:'smooth'
         })
-       }}>About</NavsubText>
-       <NavsubText onClick={()=>{
+       }}>About</ListItem>
+       <ListItem onClick={()=>{
         window.scrollTo({
           top: currentSize.currentWindowHeight * 2,
           behavior:'smooth'
         })
-       }}>Project</NavsubText>
-       <NavsubText onClick={()=>{
+       }}>Project</ListItem>
+       <ListItem onClick={()=>{
         window.scrollTo({
           top: currentSize.currentWindowHeight * 3,
           behavior:'smooth'
         })
-       }}>Last</NavsubText>
-       </div>
+       }}>Last</ListItem>
+       </List>
      </Navbar> 
-     <Inner style={{backgroundColor:'blue'}}>메인</Inner>
-     <Inner style={{backgroundColor:'red'}}>기술스텍</Inner>
-     <Inner style={{backgroundColor:'yellow'}}>프로젝트</Inner>
-     <Inner style={{backgroundColor:'gray'}}>마지막</Inner>
+     <Inner>
+      <About/>
+     </Inner>
+     <Inner>기술스텍</Inner>
+     <Inner>프로젝트</Inner>
+     <Inner>마지막</Inner>
     </div>
   )
 }

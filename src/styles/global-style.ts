@@ -4,13 +4,13 @@ import { reset } from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
-/*여기서부터는 팀룰에 따라 자유롭게 커스텀 
+//여기서부터는 자유롭게 커스텀 
 
   * {
-    box-sizing: border-box;
+    background-color: #181818;
   }
 
-  html, body { 
+  /* html, body { 
     width: 100%;
     height: 100%;
     min-width: 1200px;
@@ -22,8 +22,8 @@ export const GlobalStyle = createGlobalStyle`
 
   ul, ol {
     list-style: none;
-  }
+  } */
 
-*/
+
 
 `;
