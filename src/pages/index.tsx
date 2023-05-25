@@ -2,6 +2,7 @@ import { current } from '@/interface/interface'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import About from '@/AboutMe/About'
+import SkillPage from '@/Skill/SkillPage'
 const Navbar = styled.div` 
   display: flex;
   width: 100%;
@@ -168,8 +169,9 @@ export default function Home() {
      </Navbar> 
      <Inner>
       <About/>
+      <SkillPage/>
      </Inner>
-     <Inner>기술스텍</Inner>
+     
      <Inner>프로젝트</Inner>
      <Inner>마지막</Inner>
     </div>
