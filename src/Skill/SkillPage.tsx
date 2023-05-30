@@ -1,12 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera} from '@react-three/drei'
 import styled from 'styled-components'
 import { Sphere } from './Sphere';
+import Front from './Front'
+import Back from './Back'
+import Tool from './Tool'
 
 const Data = [
-    'FrontEnd',
-    'BackEnd',
-    'Tool'
+  'FrontEnd',
+  'BackEnd',
+  'Tool'
 ]
 
 const Section = styled.div`
@@ -41,31 +45,69 @@ const ListItem = styled.li`
   cursor: pointer;
   color: transparent;
   -webkit-text-stroke: 1px white;
-  position: relative;     
+  position: relative;
 
   &:after{
-    content: "${(props)=>props.key}";
-    
+    content: "${(props) => props.key}";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: pink;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
   }
+  &:hover {
+    &:after {
+      animation: moveText 0.5s linear both;
+      @keyframes moveText {
+        to {
+          width: 100%;
+        }
+      }
+    }
+  }
+
 `
 
-
 export const SkillPage = () => {
+  const [open, setOpen] = useState<string>("")
   return (
     <>
      <Section>
         <Container>
             <Left>
-              <List>
-                {
-                  Data.map((item : string)=>(
-                     <ListItem key={item}>{item}</ListItem>
-                  ))
-                }
-              </List>
+            <List>
+            { Data.map((item : string, idx:number)=>{
+                return(
+                    <>
+                      <ListItem key={item} onClick={()=>setOpen(item)}>{item}</ListItem>
+                       <div key={idx}>
+                        {
+                          open === "FrontEnd" ? (
+                             <Front/>
+                          ) : (
+                            open === "BackEnd" ?
+                            (
+                              <Back/>
+                            ) :(
+                              open === "Tool" ? (
+                                <Tool/>
+                              ) : <div></div>
+                            ) 
+                          )
+                        }
+                       </div>
+                    </>
+                      )
+                        
+                  })
+            }
+            </List>
             </Left>
             <Right>
                <Canvas>
+                <PerspectiveCamera position={[1,1,1]}/>
                  <ambientLight intensity={1}/>
                  <directionalLight position={[3,2,1]}/>
                  <Sphere/>

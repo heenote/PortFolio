@@ -167,11 +167,8 @@ export default function Home() {
        }}>Last</ListItem>
        </List>
      </Navbar> 
-     <Inner>
-      <About/>
-      <SkillPage/>
-     </Inner>
-     
+     <Inner><About/></Inner>
+     <Inner><SkillPage/></Inner>
      <Inner>프로젝트</Inner>
      <Inner>마지막</Inner>
     </div>

@@ -94,8 +94,9 @@ export const Sphere = () => {
 
   return (
     <>
+    
     <Points ref={(e)=>setPointRef(e)}>
-        <PerspectiveCamera  />
+        {/* <PerspectiveCamera /> */}
         <sphereGeometry args={[3,5,5]} />
         <meshBasicMaterial transparent />
     </Points>
@@ -109,7 +110,7 @@ export const Sphere = () => {
              <textGeometry
             args={[
               TEXT_ARR[i],
-              { font: font.current, size: 0.2, height: 0.01 },
+              { font: font.current, size: 0.17, height: 0.1 },
             ]}
           />
             <meshLambertMaterial attach="material" color={'orange'} />
