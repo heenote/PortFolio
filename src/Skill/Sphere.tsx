@@ -2,7 +2,7 @@ import React ,{useEffect, useRef, useState}from 'react'
 import { extend } from '@react-three/fiber';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
-import { PerspectiveCamera, Points } from '@react-three/drei'
+import { Points } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import myFont from "three/examples/fonts/droid/droid_sans_bold.typeface.json";
 
@@ -81,7 +81,6 @@ export const Sphere = () => {
         setArray(newP)
      }
      console.log(array)
-   // eslint-disable-next-line react-hooks/exhaustive-deps
    },[pointRef, font])
 
    // map의 각각의 mesh태그에 접근하여서 textGeometry의 위치를 중앙에 위치시키는 함수

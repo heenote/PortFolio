@@ -22,7 +22,7 @@ const List = styled.ul`
   display: flex;
   gap: 50px;
   list-style: none;
-  padding-right:350px;
+  padding-right:250px;
 `
 const ListItem = styled.li`
   color: white;
@@ -146,13 +146,13 @@ export default function Home() {
           top:0,
           behavior:'smooth'
         })
-       }}>Main</ListItem>
+       }}>Home</ListItem>
        <ListItem onClick={()=>{
         window.scrollTo({
           top:currentSize.currentWindowHeight * 1,
           behavior:'smooth'
         })
-       }}>About</ListItem>
+       }}>Skil</ListItem>
        <ListItem onClick={()=>{
         window.scrollTo({
           top: currentSize.currentWindowHeight * 2,
@@ -164,7 +164,7 @@ export default function Home() {
           top: currentSize.currentWindowHeight * 3,
           behavior:'smooth'
         })
-       }}>Last</ListItem>
+       }}>Contact</ListItem>
        </List>
      </Navbar> 
      <Inner><About/></Inner>
