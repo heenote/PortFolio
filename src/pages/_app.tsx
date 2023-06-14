@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../styles/global-style'
 import { theme } from '../styles/theme'
 
+// 웹서버로 요청이 들어왔을때 가장 먼저 실행되는 컴포넌트 (서버에서 먼저 처리가 됨)
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>

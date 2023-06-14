@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import About from '@/AboutMe/About'
 import SkillPage from '@/Skill/SkillPage'
+import ProjectPage from '@/project/ProjectPage'
 const Navbar = styled.div` 
   display: flex;
   width: 100%;
@@ -21,7 +22,6 @@ const NavLogo = styled.div`
 const List = styled.ul`
   display: flex;
   gap: 50px;
-  list-style: none;
   padding-right:250px;
 `
 const ListItem = styled.li`
@@ -51,7 +51,7 @@ const NavNameText = styled.span`
 
 const Inner = styled.div`
   height: 100vh;
-  font-size: 80px;
+  font-size: 85px;
   &::-webkit-scrollbar{
     display: none;
   }
@@ -169,7 +169,7 @@ export default function Home() {
      </Navbar> 
      <Inner><About/></Inner>
      <Inner><SkillPage/></Inner>
-     <Inner>프로젝트</Inner>
+     <Inner><ProjectPage/></Inner>
      <Inner>마지막</Inner>
     </div>
   )

@@ -34,7 +34,6 @@ const Right = styled.div`
   flex: 1;
 `
 const List = styled.ul<SkillList>`
-  list-style: none;
   display: flex;
   flex-direction: ${(props)=> props.check === "" ? 'column' : null};
   gap:40px;
@@ -43,7 +42,7 @@ const List = styled.ul<SkillList>`
 // No overload matches this call 타입 에러를 없애기 위해서 interface type을 생성해서 
 // 속성의 타입을 명시해주어야한다.
 const ListItem = styled.li<ListItemText>`
-  font-size: ${(props)=> props.check === "" ? '90px': "45px"};
+  font-size: ${(props)=> props.check === "" ? '90px': "50px"};
   font-weight: bold;
   cursor: pointer;
   color: ${(props) => props.check === props.text ? 'orange' : 'transparent'};
@@ -77,9 +76,11 @@ const ListItem = styled.li<ListItemText>`
 const LeftDiv = styled.div`
   display: block;
 `
+
 const DetailDiv = styled.div<SkillList>`
-  width: ${(props)=> props.check === "" ? null: "500px"};
-  height: ${(props)=> props.check === "" ? null: "450px"};
+  width: ${(props)=> props.check === "" ? null: "550px"};
+  height: ${(props)=> props.check === "" ? null: "480px"};
+  margin-left: 27px;
 `
 export const SkillPage = () => {
   const [open, setOpen] = useState<string>("")

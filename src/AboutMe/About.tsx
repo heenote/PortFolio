@@ -35,7 +35,7 @@ const Img = styled.img`
   bottom: 0;
   left: 0;
   right: 0; */
-  margin-top: 180px;
+  margin-top: 100px;
   margin-left: 60px;
   animation: animate 1s infinite ease alternate;
 
@@ -55,7 +55,7 @@ export const About = () => {
       <Left>
        <TypeIt
        options={{
-        strings:['안녕하세요!!', '프론트엔드 개발자', '조상희입니다.'],
+        strings:['안녕하세요!!', '프론트엔드', '개발자', '조상희입니다.'],
         speed: 100,
         waitUntilVisible: true,            
        }}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React ,{useEffect, useRef, useState}from 'react'
 import { extend } from '@react-three/fiber';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
@@ -38,7 +39,7 @@ export const Sphere = () => {
         "git",
         "Node JS",
         "ES5/ES6",
-        "styled-component",
+        "css-in-js",
       ];
     const [array, setArray] = useState([]);
     const [pointRef, setPointRef] = useState<any>();
