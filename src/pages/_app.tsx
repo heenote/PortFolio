@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title>Sang ProtFolio</title>
+        <title>조상희 포트폴리오</title>
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>

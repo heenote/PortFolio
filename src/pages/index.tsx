@@ -18,7 +18,6 @@ const NavLogo = styled.div`
   width: 250px;
   padding-left: 20px;
 `
-
 const List = styled.ul`
   display: flex;
   gap: 50px;
@@ -28,7 +27,6 @@ const ListItem = styled.li`
   color: white;
   cursor: pointer;
 `
-
 const NavproText = styled.span`
   display: block;
   font-size: 2rem;
@@ -38,7 +36,6 @@ const NavproText = styled.span`
   margin: 0;
   text-align: center;
 `
-
 const NavNameText = styled.span`
   display: block;
   font-family: 'Montserrat', sans-serif;
@@ -48,15 +45,13 @@ const NavNameText = styled.span`
   text-align: center;
   margin-left: 15px;
 `
-
 const Inner = styled.div`
   height: 100vh;
-  font-size: 85px;
+  font-size: 28px;
   &::-webkit-scrollbar{
     display: none;
   }
 `
-
 export default function Home() {
   const [totalPage, setTotalPage] = useState<number>(0)
   const [currentSize, setCurrentSize] = useState<current>(
@@ -93,7 +88,6 @@ export default function Home() {
       }
     }
   }
-
   // Scroll Event와 Resize시 무한 반복을 피하기 위함
   useEffect(() => {
     window.addEventListener("scroll", setPage,);

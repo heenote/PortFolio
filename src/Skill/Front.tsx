@@ -3,8 +3,10 @@ import {styled, keyframes} from 'styled-components'
 
 const FrontData = [
   {
-    title: "JS/TS",
+    title: "JS",
+    title2: 'TS',
     icon: './icon/icons8-JS.png',
+    icon2: './icon/icons8-type.png',
     detail: "JavaScript의 동작원리를 이해하고, \n interface를 사용하여 type을 정의할수있습니다."
   },
   {
@@ -53,6 +55,7 @@ const Title = styled.div`
   font-size: 25px;
   color: white;
   font-weight: bold;
+  margin-right: 10px;
   margin-bottom: 10px;
 `
 const Detail = styled.div`
@@ -78,6 +81,10 @@ const Front = () => {
                 <div style={{display:"flex"}}>
                 <IconImg src={item.icon} />
                 <Title>{item.title}</Title>
+                { item.icon2 ?
+                <><IconImg src={item.icon2} /><Title>{item.title2}</Title></>
+                 : null
+                }
                 </div>
                 <Detail>{item.detail}</Detail>                
               </DataDiv>

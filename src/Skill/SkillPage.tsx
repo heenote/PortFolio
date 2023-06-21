@@ -28,7 +28,6 @@ const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center; 
-  
 `
 const Right = styled.div`
   flex: 1;
@@ -37,6 +36,8 @@ const List = styled.ul<SkillList>`
   display: flex;
   flex-direction: ${(props)=> props.check === "" ? 'column' : null};
   gap:40px;
+  margin: 0px;
+  padding: 0px;
 `
 // styled-component로 만든 컴포넌트에 매개변수를 지정해서 사용하고 싶으면
 // No overload matches this call 타입 에러를 없애기 위해서 interface type을 생성해서 
@@ -74,16 +75,15 @@ const ListItem = styled.li<ListItemText>`
 
 `
 const LeftDiv = styled.div`
-  display: block;
 `
 
 const DetailDiv = styled.div<SkillList>`
   width: ${(props)=> props.check === "" ? null: "550px"};
-  height: ${(props)=> props.check === "" ? null: "480px"};
-  margin-left: 27px;
+  margin-top: 15px;
 `
 export const SkillPage = () => {
   const [open, setOpen] = useState<string>("")
+  
   const ref = useRef<HTMLDivElement | null>(null)
 
   // List 외부 클릭시 SkillSet으로 돌아옴

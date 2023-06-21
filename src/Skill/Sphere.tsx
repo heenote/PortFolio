@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React ,{useEffect, useRef, useState}from 'react'
 import { extend } from '@react-three/fiber';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
@@ -19,6 +18,7 @@ declare global {
 
 export const Sphere = () => {
     extend({ TextGeometry })
+    // 20개
     const TEXT_ARR = [
         "Three",
         "CSS",
@@ -69,6 +69,8 @@ export const Sphere = () => {
         })
     })
 
+    // setPointRef로 인해서 로드시 먼저 실행
+    // 텍스트가 로드될 위치를 정하는 로직
     useEffect(()=>{
      if(pointRef){
         let tempP = Array.from(pointRef.geometry.attributes.position.array);
@@ -80,23 +82,23 @@ export const Sphere = () => {
             }
         }
         setArray(newP)
+        //console.log('tempP',tempP)
      }
-     console.log(array)
-   },[pointRef, font])
+    
+   },[pointRef])
 
    // map의 각각의 mesh태그에 접근하여서 textGeometry의 위치를 중앙에 위치시키는 함수
    useEffect(()=>{
     planeRefArr.current.forEach((ref: any)=>{
         ref.geometry.center();
-        console.log(ref)
+        // console.log('ref',ref)
+        // console.log('array',array)
     })
-   },[array])
+   })
 
   return (
     <>
-    
     <Points ref={(e)=>setPointRef(e)}>
-        {/* <PerspectiveCamera /> */}
         <sphereGeometry args={[3,5,5]} />
         <meshBasicMaterial transparent />
     </Points>
