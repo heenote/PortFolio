@@ -66,7 +66,7 @@ const AboutMe = styled.div`
 `
 const IconDiv =styled.div`
   display: flex;
-  margin-top: 15px;
+  margin: 15px 0px 15px 0px;
 `
 const IconImg = styled.img`
  width: 30px;
@@ -77,6 +77,10 @@ const IconImg = styled.img`
 const MainText = styled.span`
  font-size: 25px;
  font-weight: bold;
+`
+const Contact = styled.div`
+  font-size: 17px;
+  margin-top: 15px;
 `
 export const About = () => {
  
@@ -122,13 +126,29 @@ export const About = () => {
         >
         <IconImg src='./icon/icons8-github.png' />
         </a>
-        <a>
+        <a
+        target='_blank'
+        href='https://velog.io/@tkdgml7159'
+        rel='noreferrer'
+        >
         <IconImg src='./icon/icons8-v.png' />
         </a>
-        <a>
+        <a
+        target='_blank'
+        href='https://www.instagram.com/sang_h130/'
+        rel='noreferrer'
+        >
         <IconImg src='./icon/icons8-instagram.png' />
         </a>
         </IconDiv>
+        <MainText>연락처</MainText>
+        <Contact>
+          <span style={{fontSize:'20px', fontWeight:'bold', color:'darkgrey'}}>Tel.</span>
+          {" 010-4949-3725 \n"}
+          <span style={{fontSize:'20px', fontWeight:'bold', color:'darkgrey'}}>Mail.</span>
+          {" whtkdgml7159@naver.com"}
+        </Contact>
+        
       </AboutMe>
       </Right>
       

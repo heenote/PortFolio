@@ -1,6 +1,6 @@
 import React,{useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
-
+import { DotColor } from '@/interface/interface'
 // 더미 데이터
 const Data = [
     {
@@ -44,10 +44,16 @@ const Section = styled.div`
 
 `
 const Container = styled.div`
-  display: flex;
   width: 1400px;
+  margin-top: 190px;
+`
+const UpDiv = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
+`
+const DownDiv = styled(UpDiv)`
+  margin-top: 20px;
 `
 const TotalDiv = styled.div`
   display: flex;
@@ -68,10 +74,12 @@ const ProjectDiv = styled.div`
   white-space: pre-line;
   position: relative;
 `
-const Dot = styled.button`
+const Dot = styled.div<DotColor>`
   width: 10px;
   height: 10px;
-  background-color: white;
+  margin-left: 7px;
+  border-radius: 50%;
+  background-color: ${(props)=>props.num === props.idx ? 'darkgray' : 'white'} ;
   border-style: none;
 `
 const ImgDiv = styled.div`
@@ -136,31 +144,20 @@ const NextB = styled.div`
     transform: rotate(45deg); /* 각도 */
   }
 `
-const PrevB = styled.div`
-   position: relative;
-   margin-right: 45px;
-   cursor: pointer;
+const PrevB = styled(NextB)`
+  margin-right: 45px;
   &:after{
-    position: absolute;
-    left: 0; 
-    top: 0; 
-    content: '';
-    width: 15px; /* 사이즈 */
-    height: 15px; /* 사이즈 */
-    border-top: 3px solid white; /* 선 두께 */
-    border-right: 3px solid white; /* 선 두께 */
-    transform: rotate(225deg); /* 각도 */
+    transform: rotate(225deg);
   }
 `
 export const ProjectPage = () => {
   const [lastNumber, setLastNumber] = useState<number>(3);
   const [firstNumber, setFirstNuber] = useState<number>(0);
   const [list, setList] = useState<any>([])
-  
+  const DotNum = Data.length % 3 === 0 ? Math.floor(Data.length / 3) : Math.floor(Data.length / 3) + 1 
   useEffect(()=>{
     let item = Data.slice(firstNumber,lastNumber)
     setList(item)
-    console.log('OK')
   },[lastNumber, firstNumber])
 
   const Next = ()=>{
@@ -169,16 +166,24 @@ export const ProjectPage = () => {
     setLastNumber(LplusNum)
     setFirstNuber(FplusNum)
   }
-  
+
   const Prev = ()=>{
     let LminNum = lastNumber - 1;
     let FminNum = firstNumber -1;
     setLastNumber(LminNum)
     setFirstNuber(FminNum) 
   }
+  const rendering = () => {
+    const result = [];
+    for (let i = 0; i < DotNum; i++) {
+      result.push(<Dot key={i} num={lastNumber} idx = {i+3}></Dot>);
+    }
+    return result;
+  };
   return (
     <Section>
         <Container>
+          <UpDiv>
           {
           firstNumber === 0 ? null : <PrevB onClick={Prev} />
           }
@@ -220,6 +225,8 @@ export const ProjectPage = () => {
            {
             lastNumber === Data.length ? null :<NextB onClick={Next}/>
            }
+           </UpDiv>
+           <DownDiv>{rendering()}</DownDiv>
         </Container>
     </Section>
   )

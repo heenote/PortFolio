@@ -153,18 +153,12 @@ export default function Home() {
           behavior:'smooth'
         })
        }}>Project</ListItem>
-       <ListItem onClick={()=>{
-        window.scrollTo({
-          top: currentSize.currentWindowHeight * 3,
-          behavior:'smooth'
-        })
-       }}>Contact</ListItem>
+       
        </List>
      </Navbar> 
      <Inner><About/></Inner>
      <Inner><SkillPage/></Inner>
      <Inner><ProjectPage/></Inner>
-     <Inner>마지막</Inner>
     </div>
   )
 }

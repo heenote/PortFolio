@@ -12,3 +12,8 @@ export interface SkillList{
   ref?: any,
   check: string
 }
+
+export interface DotColor{
+  num:number,
+  idx:number
+}
