@@ -57,15 +57,13 @@ const DownDiv = styled(UpDiv)`
 `
 const TotalDiv = styled.div`
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
 `
 const ProjectDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #dadce0;
-  color: white;
+  //color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 3px 1px #dadce0;
   width: 450px;
@@ -79,7 +77,7 @@ const Dot = styled.div<DotColor>`
   height: 10px;
   margin-left: 7px;
   border-radius: 50%;
-  background-color: ${(props)=>props.num === props.idx ? 'darkgray' : 'white'} ;
+  background-color: ${(props)=>props.num === props.idx ? 'darkgray' : 'black'} ;
   border-style: none;
 `
 const ImgDiv = styled.div`
@@ -139,8 +137,8 @@ const NextB = styled.div`
     content: '';
     width: 15px; /* 사이즈 */
     height: 15px; /* 사이즈 */
-    border-top: 3px solid white; /* 선 두께 */
-    border-right: 3px solid white; /* 선 두께 */
+    border-top: 3px solid var(--text-main); /* 선 두께 */
+    border-right: 3px solid var(--text-main); /* 선 두께 */
     transform: rotate(45deg); /* 각도 */
   }
 `

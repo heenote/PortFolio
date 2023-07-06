@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TypeIt from "typeit-react";
 import styled from 'styled-components';
+import useTheme from '../../Provider/useTheme';
 
 const Section = styled.div`
   height: 100vh;
@@ -52,7 +53,7 @@ const AboutMe = styled.div`
   overflow: hidden;
   animation: fadein 7s ease-in-out;
   white-space: pre-line;
-  color: white;
+  //color: white;
   @keyframes fadein{
     0%{
       opacity: 0;
@@ -83,7 +84,6 @@ const Contact = styled.div`
   margin-top: 15px;
 `
 export const About = () => {
- 
   return (
     <>
     <Section>
@@ -100,7 +100,8 @@ export const About = () => {
        }}
        
        getAfterInit={(instance) =>{
-        instance.getElement().style.color = 'white'
+        instance.getElement().style.color = 'gray'
+        instance.getElement().style.fontWeight = 'bold'
         instance.destroy();
         return instance
        }}

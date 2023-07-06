@@ -47,7 +47,7 @@ const ListItem = styled.li<ListItemText>`
   font-weight: bold;
   cursor: pointer;
   color: ${(props) => props.check === props.text ? 'orange' : 'transparent'};
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 1px var(--text-main);
   position: relative;
 
   // key값으로 받으면 실행이 안되므로 text라는 매개변수를 사용해야한다.

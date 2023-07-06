@@ -3,7 +3,7 @@ import React,{useState, useEffect, useMemo, useCallback} from 'react'
 type ThemeKey = 'light' | 'dark';
 
 type ReturnType ={
-    theme: ThemeKey;
+    theme: ThemeKey; 
     isDarkMode: boolean;
     setTheme: (theme: ThemeKey) => void;
     toggleTheme: () => void;

@@ -4,14 +4,14 @@ export const GlobalStyle = createGlobalStyle`
 
 //여기서부터는 자유롭게 커스텀 
 
-  *{
+  /* *{
     background-color: #181818;
-  }
+  } */
 
-  /* body {
+  body {
     color: var(--text-main);
     background-color: var(--bg-main);
-    transition: background 0.2s ease-in, color 0.2s ease-in;
+    transition: background 0.5s ease-in, color 0.5s ease-in;
   }
   
   body[data-theme="light"] {
@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     // text(common)
     --text-title: #111111;
     --text-subTitle: #1D1D1D;
-    --text-main: #1E1E1E;
+    --text-main: #181818;
     --text-second: #575757;
     --text-third: #989999;
     --text-fourth: #A8A5A3;
@@ -53,9 +53,9 @@ export const GlobalStyle = createGlobalStyle`
     --text-title: #FFFFFF;
     --text-subTitle: #FFFFFF;
     --text-main: #FFFFFF;
-    --bg-main: #1C1C1F;
+    --bg-main: #181818;
     --border-main: #DEDEDE solid 1px;
-  } */
+  }
 
   ul, ol {
     list-style: none;

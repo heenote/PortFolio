@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import About from '@/AboutMe/About'
 import SkillPage from '@/Skill/SkillPage'
 import ProjectPage from '@/project/ProjectPage'
+import { GlobalStyle } from '@/styles/global-style'
+import { ThemeProvider } from 'styled-components'
+import { theme } from '@/styles/theme';
+import useTheme from '../../Provider/useTheme'
 const Navbar = styled.div` 
   display: flex;
   width: 100%;
@@ -24,7 +28,7 @@ const List = styled.ul`
   padding-right:250px;
 `
 const ListItem = styled.li`
-  color: white;
+  //color: white;
   cursor: pointer;
 `
 const NavproText = styled.span`
@@ -40,7 +44,7 @@ const NavNameText = styled.span`
   display: block;
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
-  color: #f1f1f1;
+  //color: #f1f1f1;
   letter-spacing: 5px;
   text-align: center;
   margin-left: 15px;
@@ -52,7 +56,18 @@ const Inner = styled.div`
     display: none;
   }
 `
+const ThemeButton = styled.button`
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  padding: 5px 10px;
+  color: var(--bg-main);
+  background-color: var(--text-main);
+  border: 1px solid black;
+  border-radius: 5px;
+`;
 export default function Home() {
+  const {isDarkMode,toggleTheme} = useTheme();
   const [totalPage, setTotalPage] = useState<number>(0)
   const [currentSize, setCurrentSize] = useState<current>(
     typeof window !== 'undefined'?
@@ -128,6 +143,8 @@ export default function Home() {
   })
 })
   return (
+    <ThemeProvider theme={theme}>
+    <GlobalStyle/> 
     <div  className="outer" >
      <Navbar>
        <NavLogo >
@@ -153,12 +170,13 @@ export default function Home() {
           behavior:'smooth'
         })
        }}>Project</ListItem>
-       
        </List>
      </Navbar> 
      <Inner><About/></Inner>
      <Inner><SkillPage/></Inner>
      <Inner><ProjectPage/></Inner>
     </div>
+       <ThemeButton onClick={() => toggleTheme()}>{isDarkMode ? '라이트' : '다크'}모드</ThemeButton>
+    </ThemeProvider>
   )
 }

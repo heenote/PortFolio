@@ -53,14 +53,14 @@ const Container = styled.div`
 `
 const Title = styled.div`
   font-size: 25px;
-  color: white;
+  //color: white;
   font-weight: bold;
   margin-right: 10px;
   margin-bottom: 10px;
 `
 const Detail = styled.div`
   font-size: 18px;
-  color: white;
+  //color: white;
   white-space: pre-line;
 `
 const DataDiv = styled.div`
