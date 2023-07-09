@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TypeIt from "typeit-react";
 import styled from 'styled-components';
-import useTheme from '../../Provider/useTheme';
 
 const Section = styled.div`
   height: 100vh;
@@ -9,6 +8,9 @@ const Section = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    height: 200vh;
+  }
 `
 const Container = styled.div`
   height: 100%;
@@ -17,6 +19,14 @@ const Container = styled.div`
   //flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  // 모바일
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
  `
 const Left = styled.div`
   flex: 1;
@@ -24,6 +34,16 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  // 모바일
+  @media only screen and (max-width: 767px) {
+    flex:1;
+    width: 90%;
+  }
+  // 테블릿
+  @media only screen and (max-width: 320px) {
+    
+  }
 `
 const Right = styled.div`
   flex: 2;
@@ -31,6 +51,14 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-right: 50px;
+
+  // 모바일
+  @media only screen and (max-width: 767px) {
+    flex:1;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 300px;
+  }
 `
 const Img = styled.img`
   width: 800px;
@@ -44,6 +72,11 @@ const Img = styled.img`
       transform: translateY(35px);
     }
   }
+
+  @media only screen and (max-width: 767px) {
+    width: 500px;
+    height: 400px;
+  }
 `
 const AboutMe = styled.div`
   margin-top: 20px;
@@ -53,7 +86,6 @@ const AboutMe = styled.div`
   overflow: hidden;
   animation: fadein 7s ease-in-out;
   white-space: pre-line;
-  //color: white;
   @keyframes fadein{
     0%{
       opacity: 0;
@@ -100,7 +132,6 @@ export const About = () => {
        }}
        
        getAfterInit={(instance) =>{
-        instance.getElement().style.color = 'gray'
         instance.getElement().style.fontWeight = 'bold'
         instance.destroy();
         return instance

@@ -16,19 +16,28 @@ const Navbar = styled.div`
   top:0;
   align-items: center;
   justify-content: space-between;
-  z-index: 3;
+  z-index: 5;
 `
 const NavLogo = styled.div`
   width: 250px;
   padding-left: 20px;
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+    margin-right: 50px;
+    position: absolute;
+    left:0;
+  }
 `
 const List = styled.ul`
   display: flex;
   gap: 50px;
   padding-right:250px;
+  @media only screen and (max-width: 768px) {
+  margin-left: 100px;
+    
+  }
 `
 const ListItem = styled.li`
-  //color: white;
   cursor: pointer;
 `
 const NavproText = styled.span`
@@ -39,15 +48,26 @@ const NavproText = styled.span`
   text-shadow: 2px 2px #2D63A7;
   margin: 0;
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    font-size: 1.4rem;
+    text-shadow: 1px 1px #2D63A7;
+    text-align: left;
+  }
 `
 const NavNameText = styled.span`
   display: block;
+  font-weight:'bold';
+  text-shadow: 1px 1px var(--text-main);
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
-  //color: #f1f1f1;
   letter-spacing: 5px;
   text-align: center;
   margin-left: 15px;
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
 `
 const Inner = styled.div`
   height: 100vh;
@@ -61,11 +81,15 @@ const ThemeButton = styled.button`
   left: 20px;
   bottom: 20px;
   padding: 5px 10px;
-  color: var(--bg-main);
-  background-color: var(--text-main);
-  border: 1px solid black;
-  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--bg-main);
+  border: none;
 `;
+const IconImg = styled.img`
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+`
 export default function Home() {
   const {isDarkMode,toggleTheme} = useTheme();
   const [totalPage, setTotalPage] = useState<number>(0)
@@ -113,6 +137,9 @@ export default function Home() {
     };
   });
 
+  /**
+   * 마우스 휠 조정으로 스코롤 이벤트 발생
+   */
   useEffect(()=>{
     window.addEventListener('wheel',(e)=>{
     // 마우스 휠 내릴떄
@@ -128,6 +155,7 @@ export default function Home() {
         p++;
       }
     }
+    // 휠 올릴때
     else if (e.deltaY < 0){
       let p =1;
       while(p< totalPage){
@@ -176,7 +204,7 @@ export default function Home() {
      <Inner><SkillPage/></Inner>
      <Inner><ProjectPage/></Inner>
     </div>
-       <ThemeButton onClick={() => toggleTheme()}>{isDarkMode ? '라이트' : '다크'}모드</ThemeButton>
+       <ThemeButton onClick={() => toggleTheme()}>{isDarkMode ? <IconImg src='/icon/icons8-sun.png'/> : <IconImg src='/icon/icons8-moon.png'/>}</ThemeButton>
     </ThemeProvider>
   )
 }

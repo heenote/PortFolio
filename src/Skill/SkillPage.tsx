@@ -18,16 +18,35 @@ const Section = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-
+  
+  @media only screen and (max-width: 768px) {
+    height: 200vh;
+    margin-top: 100vh;
+  }
 `
 const Container = styled.div`
   display: flex;
   width: 1400px;
+
+  // 모바일
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center; 
+
+  // 모바일
+  @media only screen and (max-width: 767px) {
+    flex:1;
+    width: 100%;
+    margin-left: 200px;
+  }
 `
 const Right = styled.div`
   flex: 1;

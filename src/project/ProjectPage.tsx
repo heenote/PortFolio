@@ -1,4 +1,4 @@
-import React,{useEffect, useRef, useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { DotColor } from '@/interface/interface'
 // 더미 데이터
@@ -12,7 +12,7 @@ const Data = [
         web: 'https://heenote.github.io/Schedule_Calendar/project.html'
     },
     {
-        img: './img/port.PNG',
+        img: './img/port.jpg',
         title: '포트폴리오',
         des:"진행했던 프로젝트와 나의 정보를 정리해서 보여주는 포트폴리오 개발",
         skill:"Next.js / Styled-components / Typescript / Three.js",
@@ -42,10 +42,17 @@ const Section = styled.div`
   display: flex;
   justify-content: center;
 
+  // 모바일
+  @media only screen and (max-width: 767px) {
+    height: auto;
+    margin-top: 100vh;
+  }
+
 `
 const Container = styled.div`
   width: 1400px;
-  margin-top: 190px;
+  margin-top: 100px;
+
 `
 const UpDiv = styled.div`
   display: flex;

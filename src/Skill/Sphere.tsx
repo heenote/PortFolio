@@ -45,7 +45,6 @@ export const Sphere = () => {
     const [pointRef, setPointRef] = useState<any>();
     const font = useRef(new FontLoader().parse(myFont));
     const planeRefArr = useRef<any>([]);
-    const checkRef = useRef()
     
 
     // 렌더링된 모든 프레임에서 효과 실행, 컨트롤 업데이트 등과 같은 코드 실행 가능
