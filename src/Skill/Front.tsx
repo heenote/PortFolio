@@ -42,7 +42,6 @@ const loadEffect = keyframes`
 `
 const Container = styled.div`
   width: 600px;
-  /* height: 450px; */
   display: flex;
   flex-direction: column;
   border: 1px solid gray;
@@ -50,17 +49,19 @@ const Container = styled.div`
   justify-content: center;
   border-radius: 5px;
   animation: ${loadEffect} 0.6s ease-in-out;
+
+  @media only screen and (max-width: 767px) {
+    width: 350px;
+  }
 `
 const Title = styled.div`
   font-size: 25px;
-  //color: white;
   font-weight: bold;
   margin-right: 10px;
   margin-bottom: 10px;
 `
 const Detail = styled.div`
   font-size: 18px;
-  //color: white;
   white-space: pre-line;
 `
 const DataDiv = styled.div`

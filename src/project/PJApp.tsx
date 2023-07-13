@@ -1,6 +1,8 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import { DotColor } from '@/interface/interface'
+import { useMediaQuery } from 'react-responsive'
+import { HydrationProvider, Client } from 'react-hydration-provider';
 // 더미 데이터
 const Data = [
     {
@@ -27,14 +29,7 @@ const Data = [
         link:'https://github.com/heenote/Schedule_Calendar',
         web: 'https://heenote.github.io/Schedule_Calendar/project.html'
     },
-    {
-      img: './img/coin2.PNG',
-      title: '에시',
-      des:"Open API를 이용한 Top100까지의 코인순위를 보여주는 프로젝트.",
-      skill:"Next.js / Mysql / Typescript / Recoil",
-      link:'https://github.com/Coin-React-Project/CoinRank',
-      web: 'https://heenote.github.io/Schedule_Calendar/project.html'
-  },
+    
 ]
 
 const Section = styled.div`
@@ -44,33 +39,39 @@ const Section = styled.div`
 
   // 모바일
   @media only screen and (max-width: 767px) {
-    height: auto;
-    margin-top: 100vh;
+    margin-top: 100vh;   
   }
 
 `
 const Container = styled.div`
   width: 1400px;
   margin-top: 100px;
-
 `
 const UpDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 767px) {
+    width: 340px;
+    overflow: hidden;
+  }
 `
 const DownDiv = styled(UpDiv)`
   margin-top: 20px;
 `
 const TotalDiv = styled.div`
   display: flex;
+  @media only screen and (max-width: 767px) {
+    width: 290px;
+  }
+  
 `
 const ProjectDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #dadce0;
-  //color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 3px 1px #dadce0;
   width: 450px;
@@ -78,6 +79,18 @@ const ProjectDiv = styled.div`
   margin-right: 30px;
   white-space: pre-line;
   position: relative;
+  text-align: center;
+
+  @media only screen and (max-width: 767px) {
+    width: 300px;
+    height: 450px;
+    margin: 0px, 20px, 0px, 20px;
+  }
+`
+const ListDiv = styled.div`
+  @media only screen and (max-width: 767px) {
+    width: 400px;
+  }
 `
 const Dot = styled.div<DotColor>`
   width: 10px;
@@ -104,6 +117,10 @@ const LineImg = styled.img`
   margin-bottom: 30px;
   width: 100px;
   height: 5px;
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 `
 const IconImg = styled.img`
   width: 30px;
@@ -118,11 +135,14 @@ const DesDiv = styled.div`
   font-weight: bold;
   font-size: 17px;
   height: 100px;
-  text-align: center;
 `
 const Title = styled.p`
  font-size: 35px;
  font-weight: bold;
+
+ @media only screen and (max-width: 767px) {
+    font-size: 25px;
+  }
 `
 const IconDiv = styled.div`
   display: flex;
@@ -133,6 +153,10 @@ const IconDiv = styled.div`
 `
 const SkillSet = styled.span`
  font-size: 19px;
+
+ @media only screen and (max-width: 767px) {
+    font-size: 16px;
+  }
 `
 const NextB = styled.div`
   position: relative;
@@ -147,41 +171,60 @@ const NextB = styled.div`
     border-top: 3px solid var(--text-main); /* 선 두께 */
     border-right: 3px solid var(--text-main); /* 선 두께 */
     transform: rotate(45deg); /* 각도 */
+    
   }
 `
 const PrevB = styled(NextB)`
-  margin-right: 45px;
+  z-index: 5;
+  margin-right: 5px;
   &:after{
     transform: rotate(225deg);
   }
 `
-export const ProjectPage = () => {
-  const [lastNumber, setLastNumber] = useState<number>(3);
-  const [firstNumber, setFirstNuber] = useState<number>(0);
-  const [list, setList] = useState<any>([])
-  const DotNum = Data.length % 3 === 0 ? Math.floor(Data.length / 3) : Math.floor(Data.length / 3) + 1 
-  useEffect(()=>{
-    let item = Data.slice(firstNumber,lastNumber)
-    setList(item)
-  },[lastNumber, firstNumber])
+
+function PJApp(){
+  return(
+   <HydrationProvider>
+      <Client>
+         <ProjectPage />
+      </Client>
+    </HydrationProvider>
+    )
+}
+
+const ProjectPage = () => {
+  const TOTAL_SLIDE = 2// 배열로 계산
+  const [currentSlide, setCurrentSlide] = useState<number>(0)
+  const isMobil =  useMediaQuery({maxWidth:767})
+  const slideRef = useRef<any>(null)
 
   const Next = ()=>{
-    let LplusNum = lastNumber + 1;
-    let FplusNum = firstNumber + 1;
-    setLastNumber(LplusNum)
-    setFirstNuber(FplusNum)
+    if (currentSlide >= TOTAL_SLIDE) {
+      // 더 이상 넘어갈 슬라이드가 없으면
+      setCurrentSlide(0); // 1번째로 넘어갑니다.
+    } else {
+      setCurrentSlide(currentSlide + 1); 
+    }
   }
 
   const Prev = ()=>{
-    let LminNum = lastNumber - 1;
-    let FminNum = firstNumber -1;
-    setLastNumber(LminNum)
-    setFirstNuber(FminNum) 
+    if (currentSlide === 0) {
+      setCurrentSlide(TOTAL_SLIDE); // 마지막으로 넘어갑니다.
+    } else {
+      setCurrentSlide(currentSlide - 1);
+    }
   }
+  useEffect(() => {
+    if(slideRef.current != null){
+      slideRef.current.style.transition = 'all 0.5s ease-in-out';
+      slideRef.current.style.transform = `translateX(-${(currentSlide * 335)}px)`; //슬라이드로 이동하는 에니메이션을 만듭니다.
+    }
+  }, [currentSlide]);
+
   const rendering = () => {
     const result = [];
-    for (let i = 0; i < DotNum; i++) {
-      result.push(<Dot key={i} num={lastNumber} idx = {i+3}></Dot>);
+    for (let i = 0; i < Data.length; i++) {
+      result.push(<Dot key={i} num={currentSlide} idx = {i}></Dot>);
     }
     return result;
   };
@@ -189,24 +232,20 @@ export const ProjectPage = () => {
     <Section>
         <Container>
           <UpDiv>
-          {
-          firstNumber === 0 ? null : <PrevB onClick={Prev} />
-          }
+            <div>
+            {isMobil && <PrevB onClick={Prev}/>}
+            </div> 
+            <TotalDiv ref={slideRef} >
            {
-            list.map((item: { img: string; title: string ; skill: string ; des: string ; web: string; link: string}, idx: React.Key | null | undefined)=>{
-                return(
-                    <div key={idx}>
-                    <TotalDiv >
+             Data.map((item: { img: string; title: string ; skill: string ; des: string ; web: string; link: string}, idx: React.Key | null | undefined)=>{
+               return(
+                <ListDiv key={idx}>
                     <ProjectDiv>
-                      <ImgDiv>
-                        <Img src={item.img}/>
-                      </ImgDiv>
+                      <ImgDiv><Img src={item.img}/></ImgDiv>
                         <Title>{item.title}</Title>
                         <SkillSet>{item.skill}</SkillSet>
                       <LineImg src='./img/line.jpeg' />
-                      <DesDiv>
-                        {item.des}
-                      </DesDiv>
+                      <DesDiv>{item.des}</DesDiv>
                       <IconDiv >
                        <a
                       target='_blank'
@@ -222,19 +261,19 @@ export const ProjectPage = () => {
                       </a>
                       </IconDiv>
                     </ProjectDiv>
-                    </TotalDiv>
-                    </div>
+                    </ListDiv>
                 )
-            })
-           }
-           {
-            lastNumber === Data.length ? null :<NextB onClick={Next}/>
-           }
+              })
+            }
+            </TotalDiv>
+            <div>
+            { isMobil && <NextB onClick={Next}/>}
+            </div>
            </UpDiv>
-           <DownDiv>{rendering()}</DownDiv>
+           <DownDiv>{isMobil && rendering()}</DownDiv>
         </Container>
     </Section>
   )
 }
 
-export default ProjectPage;
+export default PJApp;

@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import About from '@/AboutMe/About'
 import SkillPage from '@/Skill/SkillPage'
-import ProjectPage from '@/project/ProjectPage'
 import { GlobalStyle } from '@/styles/global-style'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '@/styles/theme';
 import useTheme from '../../Provider/useTheme'
+import PJApp from '@/project/PJApp'
 const Navbar = styled.div` 
   display: flex;
   width: 100%;
@@ -202,7 +202,7 @@ export default function Home() {
      </Navbar> 
      <Inner><About/></Inner>
      <Inner><SkillPage/></Inner>
-     <Inner><ProjectPage/></Inner>
+     <Inner><PJApp/></Inner>
     </div>
        <ThemeButton onClick={() => toggleTheme()}>{isDarkMode ? <IconImg src='/icon/icons8-sun.png'/> : <IconImg src='/icon/icons8-moon.png'/>}</ThemeButton>
     </ThemeProvider>

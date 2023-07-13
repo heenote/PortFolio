@@ -43,6 +43,10 @@ const Container = styled.div`
   box-shadow: 3px 3px 3px 3px gray;
   border-radius: 5px;
   animation: ${loadEffect} 0.6s ease-in-out;
+
+  @media only screen and (max-width: 767px) {
+    width: 350px;
+  }
 `
 const Title = styled.div`
   font-size: 25px;

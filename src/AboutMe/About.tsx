@@ -8,8 +8,8 @@ const Section = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  @media only screen and (max-width: 768px) {
-    height: 200vh;
+  @media only screen and (max-width: 767px) {
+    height: 150vh;
   }
 `
 const Container = styled.div`
@@ -21,7 +21,7 @@ const Container = styled.div`
   justify-content: center;
 
   // 모바일
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -38,12 +38,10 @@ const Left = styled.div`
   // 모바일
   @media only screen and (max-width: 767px) {
     flex:1;
-    width: 90%;
+    width: 100%;
+    margin-right: 120px;
   }
-  // 테블릿
-  @media only screen and (max-width: 320px) {
-    
-  }
+  
 `
 const Right = styled.div`
   flex: 2;
@@ -56,8 +54,7 @@ const Right = styled.div`
   @media only screen and (max-width: 767px) {
     flex:1;
     width: 100%;
-    margin-top: 30px;
-    margin-left: 300px;
+    margin-left: 100px;
   }
 `
 const Img = styled.img`
@@ -115,6 +112,15 @@ const Contact = styled.div`
   font-size: 17px;
   margin-top: 15px;
 `
+const AoutText = styled.div`
+  margin-top: 15px;
+
+  @media only screen and (max-width: 767px) {
+    width: 50%;
+    font-size: 16px;
+    
+  }
+`
 export const About = () => {
   return (
     <>
@@ -140,15 +146,15 @@ export const About = () => {
       />
       <AboutMe>
         <MainText>자기소개</MainText>
-        <div style={{marginTop:"15px"}}>
+        <AoutText>
         {"저는 2022년부터 7개월간의 인턴 경험으로 프론트엔드 개발자를 꿈꾸게 되었습니다."}
         <p></p>
         {"개발 성장을 위해 html, css, Js도 계속 공부하고 있으며, 주로 React와 Next.js를 사용해서 개발을 진행하고 있습니다. \n"}
-        {"백엔드 언어로는 현재 파이썬을 공부하고있으며, django를 사용가능합니다. \n"}
+        {"Mysql을 사용해서 CRUD가 가능하고, 데이터를 UI에 맞게 처리할 수 있습니다.  \n"}
         <p></p>
         {"진행했던 프로젝트들은 깃허브에 커밋하고 있고, \n 블로그도 주기적으로 업로드하고 있습니다."}
         <p></p>
-        </div>
+        </AoutText>
         <MainText>링크</MainText>
         <IconDiv>
         <a 

@@ -4,6 +4,11 @@ export const GlobalStyle = createGlobalStyle`
 
 //여기서부터는 자유롭게 커스텀 
 
+/*모바일 수평 스크롤 제거 */
+html,body{
+  max-width: 100%; 
+  overflow-x: hidden;
+}
   body {
     color: var(--text-main);
     background-color: var(--bg-main);

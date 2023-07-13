@@ -50,11 +50,12 @@ export const Sphere = () => {
     // 렌더링된 모든 프레임에서 효과 실행, 컨트롤 업데이트 등과 같은 코드 실행 가능
     useFrame(({camera, clock})=>{
         const v = 10000;
+        // 모바일, 테블릿, pc 환경마다 다른 width를 줘서 object의 크기를 조절해준다.
         const width = 
         window.innerWidth > 1300
         ? 1300
-        : window.innerWidth < 500
-        ? 1500
+        : window.innerWidth < 768
+        ? 750
         : window.innerWidth < 1000
         ? 1300
         : window.innerWidth;
@@ -111,7 +112,7 @@ export const Sphere = () => {
              <textGeometry
             args={[
               TEXT_ARR[i],
-              { font: font.current, size: 0.17, height: 0.1 },
+              { font: font.current, size: 0.2, height: 0.1 },
             ]}
           />
             <meshLambertMaterial attach="material" color={'orange'} />

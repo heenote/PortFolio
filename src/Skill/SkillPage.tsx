@@ -19,9 +19,9 @@ const Section = styled.div`
   display: flex;
   justify-content: center;
   
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     height: 200vh;
-    margin-top: 100vh;
+    margin-top: 500px;
   }
 `
 const Container = styled.div`
@@ -29,7 +29,7 @@ const Container = styled.div`
   width: 1400px;
 
   // 모바일
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -45,7 +45,6 @@ const Left = styled.div`
   @media only screen and (max-width: 767px) {
     flex:1;
     width: 100%;
-    margin-left: 200px;
   }
 `
 const Right = styled.div`
@@ -54,7 +53,7 @@ const Right = styled.div`
 const List = styled.ul<SkillList>`
   display: flex;
   flex-direction: ${(props)=> props.check === "" ? 'column' : null};
-  gap:40px;
+  gap:25px;
   margin: 0px;
   padding: 0px;
 `
@@ -68,6 +67,10 @@ const ListItem = styled.li<ListItemText>`
   color: ${(props) => props.check === props.text ? 'orange' : 'transparent'};
   -webkit-text-stroke: 1px var(--text-main);
   position: relative;
+
+  @media only screen and (max-width: 767px) {
+    font-size: ${(props)=> props.check === "" ? '83px': "30px"};
+  }
 
   // key값으로 받으면 실행이 안되므로 text라는 매개변수를 사용해야한다.
   &:after{
@@ -99,6 +102,11 @@ const LeftDiv = styled.div`
 const DetailDiv = styled.div<SkillList>`
   width: ${(props)=> props.check === "" ? null: "550px"};
   margin-top: 15px;
+
+  @media only screen and (max-width: 767px){
+    width: ${(props)=> props.check === "" ? null: "550px"};
+    word-break : break-all;
+  }
 `
 export const SkillPage = () => {
   const [open, setOpen] = useState<string>("")
