@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PortFolio
+조상희 포트폴리오
 
-## Getting Started
+## 1. 프로젝트 개요
 
-First, run the development server:
+### 1-1 개발 동기
+- 포트폴리오 제출용으로 개발했습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# 서비스 화면
+## 2. 프로젝트 상세
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2-1 일정
+2023-06-12 ~ 2023-07-15
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 2-2 기술
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+|Front-end|Back-end|
+|:---:|:---:|
+|React||
+|Next.js|
+|TypeScript|
+|Three.js|
+|styled-components|
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 2-3 기술 설명
+### React
+- 다양한 react-hook을 사용한 반응형 웹을 만들기 유용하고 SPA를 사용해 앱처럼 동작하게하는 메리트가 있습니다.
+  그리고 컴포넌트 단위로 사용하기 때문에 재사용, 확장성, 가독성에 용이하다는 장점에 선택했습니다. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Next.js
+- React의 FramWork로 vervel에 서버리스로 베포가 가능하고 리액트 보다 비교적 편한 라우팅이 가능해서 사용했습니다.
 
-## Learn More
+### TypeScript
+- 함수 실행 시, 컴파일 과정에서 실시간으로 타입을 검사하므로 디버깅이 쉽고 안정된 프로그램 작성을 가능하게 하고 
+  협업 진행시 타입을 알려주기 떄문에 타입을 혼동할 일이 줄어들기 때문에 사용했습니다.
+  
+### Three.js
+- 웹 페이지 상에서 3D 모델을 보여주는 라이브러리로 SphereGeometry와 textGeometry를 사용해서 내가 사용할 수 있는
+  기술들을 구 모양으로 보이게 했으며, 카메라를 움직여서 회전하는 애니메이션을 부여했습니다.
 
-To learn more about Next.js, take a look at the following resources:
+### styled-components
+- CSS-in-JS 라이브러리로 자바스크립트로 작성된 컴포넌트에 바로 삽입하는 기법으로 JS코드안에 삽입된 코는 각 컴포넌트마다 격리된 
+  스타일로 적용할 수 있는 장점이 있고, 재사용이 가능하고 코드에서 넘어온 props를 활용해서 다른 스타일을 적용할 수 있는 장점이
+  있어서 사용했습니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
