@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DotColor } from '@/interface/interface'
 import { useMediaQuery } from 'react-responsive'
 import { HydrationProvider, Client } from 'react-hydration-provider';
-// 더미 데이터
+
 const Data = [
     {
         img: './img/coin2.PNG',
@@ -19,7 +19,7 @@ const Data = [
         des:"진행했던 프로젝트와 나의 정보를 정리해서 보여주는 포트폴리오 개발",
         skill:"Next.js / Styled-components / Typescript / Three.js",
         link:'https://github.com/heenote/PortFolio',
-        web: 'https://heenote.github.io/Schedule_Calendar/project.html'
+        web: 'https://port-folio-ten-chi.vercel.app/'
     },
     {
         img: './img/nomad.png',

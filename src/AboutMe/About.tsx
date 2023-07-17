@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import TypeIt from "typeit-react";
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components';
+import Lottie from 'react-lottie-player'
+import lottieJson from '../AboutMe/animation.json'
 
 const Section = styled.div`
   height: 100vh;
@@ -34,17 +37,17 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  margin-left: 50px;
   // 모바일
   @media only screen and (max-width: 767px) {
     flex:1;
     width: 100%;
-    margin-right: 120px;
+    margin-left: 110px;
   }
   
 `
 const Right = styled.div`
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,24 +60,7 @@ const Right = styled.div`
     margin-left: 100px;
   }
 `
-const Img = styled.img`
-  width: 800px;
-  height: 600px;
-  margin-right: 50px;
-  object-fit: contain;
-  animation: animate 1s infinite ease alternate;
 
-  @keyframes animate{
-    to{
-      transform: translateY(35px);
-    }
-  }
-
-  @media only screen and (max-width: 767px) {
-    width: 500px;
-    height: 400px;
-  }
-`
 const AboutMe = styled.div`
   margin-top: 20px;
   width: 640px;
@@ -122,12 +108,30 @@ const AoutText = styled.div`
   }
 `
 export const About = () => {
+  const isMobil =  useMediaQuery({maxWidth:767})
+  console.log(isMobil)
   return (
     <>
     <Section>
      <Container>
       <Left>
-      <Img src='./img/moon.png' />
+        <div>
+        {isMobil === true ?
+         <Lottie
+         loop
+         animationData={lottieJson}
+         play
+         style={{ width: 300, height: 300 }}
+       />
+       :
+       <Lottie
+      loop
+      animationData={lottieJson}
+      play
+      style={{ width: 550, height: 550 }}
+    /> 
+         }
+      </div>
       </Left>
       <Right>
        <TypeIt

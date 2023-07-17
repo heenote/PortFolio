@@ -24,6 +24,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hydration-provider": "^1.0.2",
+    "react-lottie-player": "^1.5.4",
     "react-notion": "^0.10.0",
     "react-responsive": "^9.0.2",
     "styled-components": "^6.0.0-rc.1",

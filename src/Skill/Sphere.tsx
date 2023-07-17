@@ -60,6 +60,7 @@ export const Sphere = () => {
         ? 1300
         : window.innerWidth;
 
+        // 
         const distance = Math.floor(v / width)
         camera.position.x = Math.sin(clock.elapsedTime / 4) * distance
         camera.position.z = Math.cos(clock.elapsedTime / 4) * distance

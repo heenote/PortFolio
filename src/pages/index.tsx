@@ -1,6 +1,7 @@
 import { current } from '@/interface/interface'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useMediaQuery } from 'react-responsive'
 import About from '@/AboutMe/About'
 import SkillPage from '@/Skill/SkillPage'
 import { GlobalStyle } from '@/styles/global-style'
@@ -15,6 +16,7 @@ const Navbar = styled.div`
   position: fixed;
   top:0;
   align-items: center;
+  background-color: black;
   justify-content: space-between;
   z-index: 5;
 `
@@ -38,6 +40,8 @@ const List = styled.ul`
   }
 `
 const ListItem = styled.li`
+  //color: var(--bg-main);
+  color:white;
   cursor: pointer;
 `
 const NavproText = styled.span`
@@ -57,6 +61,7 @@ const NavproText = styled.span`
 const NavNameText = styled.span`
   display: block;
   font-weight:'bold';
+  color: var(--bg-main);
   text-shadow: 1px 1px var(--text-main);
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
@@ -76,6 +81,8 @@ const Inner = styled.div`
     display: none;
   }
 `
+const PjDiv = styled(Inner)`
+`
 const ThemeButton = styled.button`
   position: fixed;
   left: 20px;
@@ -91,7 +98,9 @@ const IconImg = styled.img`
   margin-right: 10px;
 `
 export default function Home() {
+  // 다크모드 토글버튼, 다크모드 확인 변수 가져오기
   const {isDarkMode,toggleTheme} = useTheme();
+  const isMobil =  useMediaQuery({maxWidth:767})
   const [totalPage, setTotalPage] = useState<number>(0)
   const [currentSize, setCurrentSize] = useState<current>(
     typeof window !== 'undefined'?
@@ -140,36 +149,36 @@ export default function Home() {
   /**
    * 마우스 휠 조정으로 스코롤 이벤트 발생
    */
-  useEffect(()=>{
-    window.addEventListener('wheel',(e)=>{
-    // 마우스 휠 내릴떄
-    if(e.deltaY > 0){
-      let p =1;
-      while(p < totalPage){
-        if(currentSize.page === p){
-          window.scrollTo({
-            top:currentSize.currentWindowHeight * p,
-            behavior: 'smooth'
-          });
-        }
-        p++;
-      }
-    }
-    // 휠 올릴때
-    else if (e.deltaY < 0){
-      let p =1;
-      while(p< totalPage){
-        if(currentSize.page === p){
-          window.scrollTo({
-            top:currentSize.currentWindowHeight * (p-1),
-            behavior: 'smooth'
-          });
-      }
-      p++;
-    }
-  }
-  })
-})
+//   useEffect(()=>{
+//     window.addEventListener('wheel',(e)=>{
+//     // 마우스 휠 내릴떄
+//     if(e.deltaY > 0){
+//       let p =1;
+//       while(p < totalPage){
+//         if(currentSize.page === p){
+//           window.scrollTo({
+//             top:currentSize.currentWindowHeight * p,
+//             behavior: 'smooth'
+//           });
+//         }
+//         p++;
+//       }
+//     }
+//     // 휠 올릴때
+//     else if (e.deltaY < 0){
+//       let p =1;
+//       while(p< totalPage){
+//         if(currentSize.page === p){
+//           window.scrollTo({
+//             top:currentSize.currentWindowHeight * (p-1),
+//             behavior: 'smooth'
+//           });
+//       }
+//       p++;
+//     }
+//   }
+//   })
+// })
   return (
     <ThemeProvider theme={theme}>
     <GlobalStyle/> 
@@ -191,7 +200,7 @@ export default function Home() {
           top:currentSize.currentWindowHeight * 1,
           behavior:'smooth'
         })
-       }}>Skil</ListItem>
+       }}>Skill</ListItem>
        <ListItem onClick={()=>{
         window.scrollTo({
           top: currentSize.currentWindowHeight * 2,
@@ -204,7 +213,7 @@ export default function Home() {
      <Inner><SkillPage/></Inner>
      <Inner><PJApp/></Inner>
     </div>
-       <ThemeButton onClick={() => toggleTheme()}>{isDarkMode ? <IconImg src='/icon/icons8-sun.png'/> : <IconImg src='/icon/icons8-moon.png'/>}</ThemeButton>
+       <ThemeButton onClick={() => toggleTheme()}>{isDarkMode ? <IconImg  src='/icon/icons8-sun.png' /> : <IconImg src='/icon/icons8-moon.png'/>}</ThemeButton>
     </ThemeProvider>
   )
 }

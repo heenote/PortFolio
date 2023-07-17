@@ -69,7 +69,7 @@ const ListItem = styled.li<ListItemText>`
   position: relative;
 
   @media only screen and (max-width: 767px) {
-    font-size: ${(props)=> props.check === "" ? '83px': "30px"};
+    font-size: ${(props)=> props.check === "" ? '83px': "25px"};
   }
 
   // key값으로 받으면 실행이 안되므로 text라는 매개변수를 사용해야한다.
