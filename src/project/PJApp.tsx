@@ -45,7 +45,7 @@ const Section = styled.div`
 `
 const Container = styled.div`
   width: 1400px;
-  margin-top: 100px;
+  margin-top: 150px;
 `
 const UpDiv = styled.div`
   display: flex;
@@ -55,6 +55,7 @@ const UpDiv = styled.div`
   @media only screen and (max-width: 767px) {
     width: 340px;
     overflow: hidden;
+    margin-left: 8px;
   }
 `
 const DownDiv = styled(UpDiv)`
@@ -217,7 +218,7 @@ const ProjectPage = () => {
   useEffect(() => {
     if(slideRef.current != null){
       slideRef.current.style.transition = 'all 0.5s ease-in-out';
-      slideRef.current.style.transform = `translateX(-${(currentSlide * 335)}px)`; //슬라이드로 이동하는 에니메이션을 만듭니다.
+      slideRef.current.style.transform = `translateX(-${(currentSlide * 333)}px)`; //슬라이드로 이동하는 에니메이션을 만듭니다.
     }
   }, [currentSlide]);
 

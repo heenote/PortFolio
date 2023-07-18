@@ -40,7 +40,6 @@ const List = styled.ul`
   }
 `
 const ListItem = styled.li`
-  //color: var(--bg-main);
   color:white;
   cursor: pointer;
 `
@@ -81,8 +80,7 @@ const Inner = styled.div`
     display: none;
   }
 `
-const PjDiv = styled(Inner)`
-`
+
 const ThemeButton = styled.button`
   position: fixed;
   left: 20px;
@@ -191,24 +189,24 @@ export default function Home() {
        <List>
        <ListItem onClick={()=>{
         window.scrollTo({
-          top:0,
+          top:currentSize.currentWindowHeight * 0,
           behavior:'smooth'
         })
        }}>Home</ListItem>
        <ListItem onClick={()=>{
         window.scrollTo({
-          top:currentSize.currentWindowHeight * 1,
+          top: isMobil===false ? currentSize.currentWindowHeight * 1 : currentSize.currentWindowHeight * 1.5 ,
           behavior:'smooth'
         })
        }}>Skill</ListItem>
        <ListItem onClick={()=>{
         window.scrollTo({
-          top: currentSize.currentWindowHeight * 2,
+          top: isMobil===false ? currentSize.currentWindowHeight * 2 : currentSize.currentWindowHeight * 3.5,
           behavior:'smooth'
         })
        }}>Project</ListItem>
        </List>
-     </Navbar> 
+     </Navbar>
      <Inner><About/></Inner>
      <Inner><SkillPage/></Inner>
      <Inner><PJApp/></Inner>

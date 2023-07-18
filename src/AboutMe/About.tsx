@@ -2,8 +2,12 @@ import React from 'react'
 import TypeIt from "typeit-react";
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components';
-import Lottie from 'react-lottie-player'
+import dynamic from 'next/dynamic'
+//import Lottie from 'react-lottie-player'
 import lottieJson from '../AboutMe/animation.json'
+
+// ssr에서는 모바일 화면에서 크기 조정이 바로 안되는 현상 해결을 위해서 추가
+const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
 
 const Section = styled.div`
   height: 100vh;
@@ -109,7 +113,6 @@ const AoutText = styled.div`
 `
 export const About = () => {
   const isMobil =  useMediaQuery({maxWidth:767})
-  console.log(isMobil)
   return (
     <>
     <Section>
