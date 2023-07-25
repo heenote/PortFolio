@@ -10,8 +10,8 @@ const Data = [
         title: 'CoinRanking',
         des:"Open API를 이용한 Top100까지의 코인순위를 보여주는 프로젝트.",
         skill:"Next.js / Mysql / Typescript / Recoil",
-        link:'https://github.com/Coin-React-Project/CoinRank',
-        web: 'https://heenote.github.io/Schedule_Calendar/project.html'
+        link:'https://github.com/heenote/TeamProject-CoinRank',
+        web: 'https://coin-rank-omega.vercel.app/'
     },
     {
         img: './img/port.jpg',
@@ -182,6 +182,7 @@ const PrevB = styled(NextB)`
     transform: rotate(225deg);
   }
 `
+
 
 function PJApp(){
   return(

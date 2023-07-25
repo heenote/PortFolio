@@ -15,6 +15,7 @@ const Navbar = styled.div`
   height: 70px;
   position: fixed;
   top:0;
+  left: 0;
   align-items: center;
   background-color: black;
   justify-content: space-between;
@@ -36,7 +37,7 @@ const List = styled.ul`
   padding-right:250px;
   @media only screen and (max-width: 768px) {
   margin-left: 100px;
-    
+  gap:40px;  
   }
 `
 const ListItem = styled.li`
