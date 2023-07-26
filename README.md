@@ -8,6 +8,18 @@
 
 # main 화면
 ![image](https://github.com/heenote/PortFolio/assets/99184080/b2a20021-e56b-4c8a-a76b-772d7ea38517)
+- main 화면으로 간단한 자기소개와 깃허브, 블로그, 인스타 링크 그리고 연락처가 기재되어있습니다.
+
+# skill 화면
+![image](https://github.com/heenote/PortFolio/assets/99184080/92202cf2-585e-4d6f-8531-11b37dda3191)
+- Front, Back, Tool을 클릭하면 사용가능한 스킬 상세정보가 나옵니다.
+- 시각적인 효과를 주기위해서 three.js를 사용해서 구 형태의 3D모델을 추가했습니다.
+
+# project 화면
+![image](https://github.com/heenote/PortFolio/assets/99184080/c059d1b9-bd7e-4e81-960e-abc5a6933641)
+- 진행했던 프로젝트 들을 보여줍니다.
+- 인터넷 아이콘을 클릭하면 베포한 사이트, 깃허브 아이콘을 클릭하면 해당 레파지토리로 이동합니다.
+- 모바일 화면에서는 캐러셀을 사용해서 하나의 컴포넌트 씩 보여줍니다.
 
 ## 2. 프로젝트 상세
 
